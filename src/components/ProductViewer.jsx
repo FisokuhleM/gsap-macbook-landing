@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import {COLORS, SIZES} from '../constants'
 import { Canvas } from '@react-three/fiber'
 import { Box, OrbitControls } from '@react-three/drei'
+import MacbookModel14 from './models/Macbook-14'
 
 
 const ProductViewer = () => {
@@ -42,7 +43,9 @@ const ProductViewer = () => {
         </div>
         <Canvas id='canvas' camera={{position:[0,2,5], fov: 50, near:0.1, far:100}}>
             {/*X,Y,Z ---> X-> horizontal, Y-> vertical, Z-> depth(How far)*/}
-            <Box position={[0,0.7,0]} scale={10 * scale} material-color={color}/>
+            {/*<Box position={[0,0.7,0]} scale={10 * scale} material-color={color}/>*/}
+            <ambientLight intensity={0.5}/>
+            <MacbookModel14 scale={0.06} position={[0, 0, 0]}/>
             <OrbitControls enableZoom={false}/>
         </Canvas>
     </section>
